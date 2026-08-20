@@ -2,7 +2,7 @@
 
 ## Prerequisites
 
-- Python 3.11+, Node 18+
+- [uv](https://docs.astral.sh/uv/) (Python package/venv manager), Node 18+
 - An Anthropic API key with access to `claude-haiku-4-5`
 - No embeddings API key needed — embeddings run locally via `sentence-transformers` (first run downloads the ~80MB `all-MiniLM-L6-v2` model)
 
@@ -11,10 +11,9 @@
 ```bash
 # backend
 cd backend
-python -m venv .venv && .venv/Scripts/activate   # or source .venv/bin/activate on macOS/Linux
-pip install -r requirements.txt
-setx ANTHROPIC_API_KEY "sk-ant-..."               # or export on macOS/Linux
-uvicorn app.main:app --reload --port 8000
+uv sync
+setx ANTHROPIC_API_KEY "sk-ant-..."               # or export on macOS/Linux, or put it in backend/.env
+uv run uvicorn app.main:app --reload --port 8000
 
 # frontend (separate terminal)
 cd frontend

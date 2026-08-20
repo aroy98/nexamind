@@ -6,12 +6,11 @@ See [specs/001-ai-knowledge-inbox](specs/001-ai-knowledge-inbox/) for the full s
 ## Setup
 
 ```bash
-# backend
+# backend — requires uv (https://docs.astral.sh/uv/)
 cd backend
-python -m venv .venv && .venv/Scripts/activate   # or source .venv/bin/activate on macOS/Linux
-pip install -r requirements.txt
+uv sync
 cp .env.example .env   # fill in ANTHROPIC_API_KEY
-uvicorn app.main:app --reload --port 8000
+uv run uvicorn app.main:app --reload --port 8000
 
 # frontend (separate terminal)
 cd frontend
@@ -25,7 +24,7 @@ Open `http://localhost:5173`. See [quickstart.md](specs/001-ai-knowledge-inbox/q
 
 ```bash
 cd backend
-pytest
+uv run pytest
 ```
 
 ## Tradeoffs
