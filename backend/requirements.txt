@@ -1,0 +1,10 @@
+fastapi
+uvicorn[standard]
+anthropic
+sentence-transformers
+requests
+beautifulsoup4
+numpy
+pytest
+python-dotenv
+httpx

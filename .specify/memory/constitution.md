@@ -1,6 +1,17 @@
 <!--
 Sync Impact Report
-- Version change: 1.0.0 → 1.1.0
+- Version change: 1.1.0 → 1.1.1
+- Modified principles: III. Debuggable by Default — status-code example changed from
+  "400 for bad input" to "4xx for bad input — 422 for validation failures" to match the
+  actual API contract (contracts/api.md uses 422, not 400, for all validation errors).
+  Wording clarification only; the underlying MUST (sensible status code) is unchanged.
+- Added sections: none
+- Removed sections: none
+- Templates requiring updates: none
+- Follow-up TODOs: none
+- Found by: /speckit-analyze (finding D1)
+
+Prior report (1.0.0 → 1.1.0):
 - Modified principles: n/a
 - Added sections: Governance / Commit conventions (no AI-attribution trailers in commit messages)
 - Removed sections: none
@@ -46,10 +57,10 @@ don't transfer to a real production decision later.
 
 ### III. Debuggable by Default
 Every request path MUST produce structured logs (not bare `print`), return a
-sensible HTTP status code for its outcome (400 for bad input, 404 for missing
-resource, 502/503 for upstream/LLM failures, etc.), and surface error
-messages that name what went wrong and where — never a bare stack trace or a
-silent empty response.
+sensible HTTP status code for its outcome (4xx for bad input — 422 for
+validation failures, 404 for missing resource, 502/503 for upstream/LLM
+failures, etc.), and surface error messages that name what went wrong and
+where — never a bare stack trace or a silent empty response.
 **Rationale**: A single-user prototype still gets debugged under time
 pressure; logging and status codes are the cheapest possible investment
 against that.
@@ -119,4 +130,4 @@ on it.
 trailers (e.g. `Co-Authored-By: Claude`, `Generated with Claude Code`, or
 similar). Authorship is the committing user's.
 
-**Version**: 1.1.0 | **Ratified**: 2026-08-20 | **Last Amended**: 2026-08-20
+**Version**: 1.1.1 | **Ratified**: 2026-08-20 | **Last Amended**: 2026-08-20

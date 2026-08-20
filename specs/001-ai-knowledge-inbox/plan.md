@@ -32,7 +32,7 @@ A single-user web app for saving notes/URLs and asking questions over them via R
 
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-Re-checked against `.specify/memory/constitution.md` v1.0.0 (ratified 2026-08-20, after this plan's initial draft). All five principles PASS with no changes to the technical approach:
+Re-checked against `.specify/memory/constitution.md` v1.1.1 (ratified 2026-08-20, after this plan's initial draft; v1.1.x changes were a Governance commit-message rule and a Principle III wording clarification — no changes affecting this plan's technical approach). All five principles PASS:
 
 | Principle | Status | Evidence |
 |---|---|---|
