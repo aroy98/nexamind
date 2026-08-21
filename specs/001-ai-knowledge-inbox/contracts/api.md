@@ -137,6 +137,8 @@ This is still `200 OK` — it's a valid, non-error outcome, not a failure.
 
 ## Cross-cutting
 
-- All 4xx/5xx responses use the `{ "error", "detail" }` shape above.
+- All 4xx/5xx responses use the `{ "error", "detail" }` shape above — including FastAPI's own
+  request-parsing failures (missing/invalid fields, malformed JSON) and any unhandled exception
+  (mapped to 500), not just the explicitly-raised `ValueError`/`ProviderError` cases.
 - All responses are `application/json`.
 - Every request is logged (structured JSON) with: method, path, status, latency_ms, and — for `/ingest`/`/query` — item/chunk counts or retrieval hit counts as applicable.

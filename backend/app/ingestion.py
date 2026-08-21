@@ -59,9 +59,8 @@ def _extract_url(content: str) -> tuple[str, str, str]:
 
 
 def validate_and_extract(source_type: str, content: str) -> tuple[str, str | None, str]:
-    """Returns (raw_content, source_url, title). Raises ValueError (422) or ProviderError (502)."""
+    """Returns (raw_content, source_url, title). Raises ValueError (422) or ProviderError (502).
+    source_type is validated as Literal["note", "url"] by IngestRequest before this runs."""
     if source_type == "note":
         return _extract_note(content)
-    if source_type == "url":
-        return _extract_url(content)
-    raise ValueError(f"unknown source_type: {source_type}")
+    return _extract_url(content)
