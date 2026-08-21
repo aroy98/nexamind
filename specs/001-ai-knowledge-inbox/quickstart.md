@@ -13,7 +13,7 @@
 cd backend
 uv sync
 setx ANTHROPIC_API_KEY "sk-ant-..."               # or export on macOS/Linux, or put it in backend/.env
-uv run uvicorn app.main:app --reload --port 8000
+uv run dev
 
 # frontend (separate terminal)
 cd frontend

@@ -10,7 +10,7 @@ See [specs/001-ai-knowledge-inbox](specs/001-ai-knowledge-inbox/) for the full s
 cd backend
 uv sync
 cp .env.example .env   # fill in ANTHROPIC_API_KEY
-uv run uvicorn app.main:app --reload --port 8000
+uv run dev
 
 # frontend (separate terminal)
 cd frontend
